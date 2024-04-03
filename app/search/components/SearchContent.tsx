@@ -2,6 +2,7 @@
 
 import { Song } from '@/types'
 import MediaItem from '@/components/MediaItem'
+import LikeButton from '@/components/LikeButton'
 
 interface SeacrchContentProps {
     songs: Song[]
@@ -35,7 +36,7 @@ const SearchContent = ({ songs }: SeacrchContentProps) => {
                     <div className='flex-1'>
                         <MediaItem data={song} onClick={() => {}} />
                     </div>
-                    {/* TODO: Add like button here */}
+                    <LikeButton songId={song.id} />
                 </div>
             )}
         </div>
