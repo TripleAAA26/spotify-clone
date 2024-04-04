@@ -3,11 +3,13 @@
 import { Song } from '@/types'
 import MediaItem from '@/components/MediaItem'
 import LikeButton from '@/components/LikeButton'
+import useOnPlay from '@/hooks/useOnPlay'
 
 interface SeacrchContentProps {
     songs: Song[]
 }
 const SearchContent = ({ songs }: SeacrchContentProps) => {
+    const onPlay = useOnPlay(songs)
 
     if (songs.length === 0) {
         return (
@@ -34,7 +36,7 @@ const SearchContent = ({ songs }: SeacrchContentProps) => {
                     className='flex items-center gap-x-4 w-full'
                 >
                     <div className='flex-1'>
-                        <MediaItem data={song} onClick={() => {}} />
+                        <MediaItem data={song} onClick={(id: string) => onPlay(id)} />
                     </div>
                     <LikeButton songId={song.id} />
                 </div>
